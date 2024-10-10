@@ -21,6 +21,7 @@ const App = () => {
           component={MarketDetails}
           options={{
             headerTitle: "Market Details",
+            headerShown: false,
           }}
         />
       </RootStack.Navigator>

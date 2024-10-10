@@ -41,7 +41,7 @@ const BottomTabNavigator = (): JSX.Element => {
         },
         tabBarActiveTintColor: "#b71c1c",
         tabBarInactiveTintColor: "gray",
-        headerShown: false, // Hide the header for tabs
+        headerShown: false,
       })}
     >
       <Tab.Screen name="Restaurants" component={RestaurantsScreen} />

@@ -16,7 +16,7 @@ import Category from "../components/Category";
 const LOCATIONS = ["Umm al-fahem", "Haifa", "Tel Aviv"];
 const TAGS = ["Fast Food", "Pizza", "Sushi", "Burgers", "Vegan", "Desserts"];
 
-const RestaurantsScreen = (): JSX.Element => {
+const RestaurantsScreen = () => {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState(LOCATIONS[0]);
   const [categoriesData, setCategoriesData] = useState<any[]>([]);
@@ -34,7 +34,7 @@ const RestaurantsScreen = (): JSX.Element => {
           }
         );
         const jsonData = await response.json();
-        setCategoriesData(jsonData.categories as any); // Typecast response to CategoryType[]
+        setCategoriesData(jsonData.categories as any);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -93,11 +93,10 @@ const RestaurantsScreen = (): JSX.Element => {
         <MainPageBanner />
         <Tags tags={TAGS} />
 
-        {/* Render horizontal and vertical categories */}
         {categoriesData.map((category, index) => (
           <Category
             key={`${category.id}-${index}`}
-            businesses={category.stores} // Use the correct type here
+            businesses={category.stores}
             layoutType={
               category.elementType === "MarketHorizontalCategory"
                 ? "horizontal"
